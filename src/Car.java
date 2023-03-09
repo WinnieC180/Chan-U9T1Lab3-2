@@ -2,7 +2,7 @@ public class Car extends Vehicle
 {
   private boolean electric;
   private boolean discountApplied;
-  
+
   public Car(String licensePlate, double tollFee, int passengers, boolean electric)
   {
     super(licensePlate, tollFee, passengers);
@@ -19,13 +19,12 @@ public class Car extends Vehicle
     return discountApplied;
   }
 
-  public void printCar()
+  @Override
+  public void printInfo()
   {
     // print the car's license plate, toll fee, number of passengers,
     // whether it is electric, and whether a discount has been applied
-    System.out.println("License plate: " + getLicensePlate());
-    System.out.println("Toll fee: " + getTollFee());
-    System.out.println("Passengers: " + getPassengers());
+    super.printInfo();
     System.out.println("Electric? " + electric);
     System.out.println("Discount applied? " + discountApplied);
   }
@@ -59,5 +58,13 @@ public class Car extends Vehicle
         discountApplied = true; // set discountApplied to true
       }
     }
+  }
+
+  @Override
+  public double calculateTollPrice() {
+    if (getPassengers() > 4) {
+      return getTollFee() * 4;
+    }
+    return super.calculateTollPrice();
   }
 }

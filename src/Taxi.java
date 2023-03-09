@@ -6,12 +6,24 @@ public class Taxi extends Car {
     this.fareCollected = fareCollected;
   }
 
-  public void printTaxi() {
-    System.out.println("License plate: " + getLicensePlate());
-    System.out.println("Toll fee: " + getTollFee());
-    System.out.println("Passengers: " + getPassengers());
-    System.out.println("Electric? " + isElectric());
-    System.out.println("Discount applied? " + isDiscountApplied());
+  public double getFareCollected() {
+    return fareCollected;
+  }
+
+  @Override
+  public void printInfo() {
+    super.printInfo();
     System.out.println("Total fare collected: " + fareCollected);
   }
+
+  public boolean chargeAndDropOffRiders(double farePerRider) {
+    fareCollected += farePerRider * (getPassengers() - 1); //passengers includes driver so u have to subtract 1
+    return dropOffPassengers(getPassengers() - 1);
+  }
+
+  @Override
+  public void route() {
+    System.out.println("What's your destination?");
+  }
 }
+

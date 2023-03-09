@@ -3,7 +3,7 @@ public class Vehicle
   private String licensePlate;
   private double tollFee;
   private int passengers;
-  
+
   public Vehicle(String licensePlate, double tollFee, int passengers)
   {
     this.licensePlate = licensePlate;
@@ -40,4 +40,15 @@ public class Vehicle
   {
     return tollFee * passengers;
   }
+
+  public void printInfo() {
+    System.out.println("License Plate: " + licensePlate);
+    System.out.println("Toll Fee: " + tollFee);
+    System.out.println("Passengers: " + passengers);
+  }
+
+  public void route() {
+    System.out.println("Enter the route you're taking...");
+  }
 }
+
